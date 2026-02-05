@@ -9,4 +9,7 @@ RUN pip install --no-cache-dir uv
 # excluding packages that are marked as dev
 RUN uv sync --no-dev
 
-CMD ["uv", "run", "streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# 
+CMD ["sh", "-c", "uv run streamlit run app.py \
+    --server.port=${PORT:-8501} \
+    --server.address=0.0.0.0"]

@@ -4,9 +4,10 @@ services:
       context: .
       dockerfile: backend/Dockerfile
     ports:
-      - "8000:8000"
+      - "8000:80"
     env_file:
       - ../../../.env
+    image: ragbit941222-h0fsfmcxavazggd2.azurecr.io/ragbit-backend:latest
 
   frontend:
     build:
@@ -17,4 +18,5 @@ services:
     depends_on:
       - backend
     environment:
-      - API_URL=http://backend:8000
+      - API_URL=http://backend
+    image: ragbit941222-h0fsfmcxavazggd2.azurecr.io/ragbit-frontend:latest
